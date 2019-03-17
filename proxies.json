@@ -1,0 +1,47 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "icotop": {
+            "matchCondition": {
+                "route": "/favicon.ico"
+            },
+            "backendUri": "https://moylgrovehistory.blob.core.windows.net/code/history/favicon.ico"
+        },
+        "defaultTop": {
+            "matchCondition": {
+                "route": "/"
+            },
+            "backendUri": "https://localhost/api/redirect"
+        },
+        "codeFromBlob": {
+            "matchCondition": {
+                "route": "/h/{*file}"
+            },
+            "backendUri": "https://moylgrovehistory.blob.core.windows.net/code/history/{file}"
+        },
+        "codeFromBlobDefault": {
+            "matchCondition": {
+                "route": "/h/"
+            },
+            "backendUri": "https://localhost/api/redirect"
+        },
+        "images": {
+            "matchCondition": {
+                "route": "/images/{*file}"
+            },
+            "backendUri": "https://moylgrovehistory.blob.core.windows.net/history-img/{file}"
+        },
+        "av": {
+            "matchCondition": {
+                "route": "/av/{file}"
+            },
+            "backendUri": "https://moylgrovehistory.blob.core.windows.net/audiovis/{file}"
+        },
+        "bunnypic": {
+            "matchCondition": {
+                "route": "/bunnypic/{*file}"
+            },
+            "backendUri": "https://moylgrovehistory.blob.core.windows.net/bunny-img/{file}"
+        }
+    }
+}

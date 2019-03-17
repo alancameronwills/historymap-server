@@ -1,0 +1,12 @@
+{
+  "bindings": [
+    {
+      "name": "pic",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "history-img/{name}",
+      "connection": "AzureWebJobsStorage"
+    }
+  ],
+  "disabled": false
+}

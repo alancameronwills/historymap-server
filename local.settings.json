@@ -1,0 +1,33 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "WEBSITE_AUTH_TOKEN_STORE": "True",
+    "WEBSITE_SLOT_NAME": "Production",
+    "FUNCTIONS_EXTENSION_VERSION": "~1",
+    "ScmType": "None",
+    "WEBSITE_AUTH_GOOGLE_CLIENT_ID": "618549524630-84s1ilqebb28o52jo82ou1kib9ajfmgp.apps.googleusercontent.com",
+    "WEBSITE_AUTH_ENABLED": "True",
+    "WEBSITE_AUTH_GOOGLE_CLIENT_SECRET": "gI0G78GYlQgqYOAm0HISEM4-",
+    "REMOTEDEBUGGINGVERSION": "11.0.611103.400",
+    "WEBSITE_AUTH_FB_SCOPE": "public_profile",
+    "WEBSITE_AUTH_MSA_SCOPE": "wl.signin",
+    "WEBSITE_AUTH_UNAUTHENTICATED_ACTION": "AllowAnonymous",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "1eff7d7b-45c5-4162-9d8c-5019829546ab",
+    "moylgrovehall_STORAGE": "DefaultEndpointsProtocol=https;AccountName=moylgrovehall;AccountKey=mFaY0yLcIi/rM4K/ePJKRE7GzbsheBxFxkNZxQVn62g4RcydjH6qziRmr3q5nplsA3OreElOmKB7R+3mIfvdow==",
+    "WEBSITE_HTTPLOGGING_RETENTION_DAYS": "2",
+    "AzureWebJobsDashboard": "DefaultEndpointsProtocol=https;AccountName=moylgrovehistory;AccountKey=FYrLaOQASw3oLaEscmMUWtV70VbcTFGZXxwp0GuaTvJZKguM/C9AiI1nAKp6uw7AP4+k1gXwXTKNw9pcLDiFYA==",
+    "WEBSITE_AUTH_EXTERNAL_REDIRECT_URLS": "https://moylgrove-history.azurewebsites.net/h/editor.htm",
+    "WEBSITE_NODE_DEFAULT_VERSION": "6.5.0",
+    "WEBSITE_AUTH_FB_APP_SECRET": "81c50699c9470a15b67dc26c35c6a451",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=moylgrovehistory;AccountKey=FYrLaOQASw3oLaEscmMUWtV70VbcTFGZXxwp0GuaTvJZKguM/C9AiI1nAKp6uw7AP4+k1gXwXTKNw9pcLDiFYA==",
+    "WEBSITE_CONTENTSHARE": "moylgrove-history-7f02ad00",
+    "WEBSITE_AUTH_FB_APP_ID": "1232432806891745",
+    "WEBSITE_AUTH_AUTO_AAD": "False",
+    "WEBSITE_AUTH_MSA_CLIENT_SECRET": "eqCO70qxzohTTUAK034-;}-",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=moylgrovehistory;AccountKey=FYrLaOQASw3oLaEscmMUWtV70VbcTFGZXxwp0GuaTvJZKguM/C9AiI1nAKp6uw7AP4+k1gXwXTKNw9pcLDiFYA==",
+    "WEBSITE_AUTH_MSA_CLIENT_ID": "000000004021913A",
+    "WEBSITE_SITE_NAME": "moylgrove-history",
+    "WEBSITE_AUTH_LOGOUT_PATH": "/.auth/logout",
+    "WEBSITE_AUTH_DEFAULT_PROVIDER": "AzureActiveDirectory"
+  }
+}
