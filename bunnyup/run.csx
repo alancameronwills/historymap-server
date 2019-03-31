@@ -30,7 +30,17 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req,  Cloud
         log.Info (">> NO USER");
         return new HttpResponseMessage(HttpStatusCode.Unauthorized);
     }
-    else { 
+
+    if (string.IsNullOrWhiteSpace(place.Title) && string.IsNullOrWhiteSpace(place.Text)) {
+        place.User = user;
+        place.Updated = DateTime.Now;
+        place.ETag = "*";
+        log.Info ("Delete place");
+        TableOperation deleteOperation = TableOperation.Delete(place);
+        TableResult result = outTable.Execute(deleteOperation);
+        return new HttpResponseMessage((HttpStatusCode)result.HttpStatusCode);
+    }
+    {
         place.User = user;
         place.Updated = DateTime.Now;
         TableOperation updateOperation = TableOperation.InsertOrReplace(place);
