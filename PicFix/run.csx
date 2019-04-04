@@ -24,7 +24,7 @@ public static void Run(Stream pic, string name, TraceWriter log)
 
 
     if (pic.Length > 1e6){
-        var instructions = new Instructions { OutputFormat = OutputFormat.Jpeg, JpegQuality = 50, Height=800,Width=800,Mode=FitMode.Max };
+        var instructions = new Instructions { OutputFormat = OutputFormat.Jpeg, JpegQuality = 50, Height=1200,Width=1200,Mode=FitMode.Max };
 
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageAccountConnectionString);
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
