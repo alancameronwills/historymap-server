@@ -1,4 +1,4 @@
-var ZoneFilter=require("..\Shared\ZoneFilter.js");
+var ZoneFilter=require("../Shared/ZoneFilter.js");
 
 module.exports = function (context, req, intable) {
     var outtable = intable;
