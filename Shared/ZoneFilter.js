@@ -22,7 +22,7 @@ class ZoneFilter {
             || lat > 52.083175 && lon > -4.681352; // Castle Farm
         if (this.cardigan && eastOfTeifi) return "cardigan";
         if (this.stdogmaels) {
-            if (lat < 52.057273 || lat > 52.121499 || lon > -4.646737) return "";
+            if (lat < 52.057273 || lat > 52.121499 || lon > -4.642) return "";
             if (eastOfTeifi)
                 // include Bridgend:
                 return !ZoneFilter.northOf(lat, lon, 52.079930, -4.665626, 52.082778, -4.648631) ? "stdogmaels" : "";
@@ -30,7 +30,7 @@ class ZoneFilter {
                 // east of Ceibwr:
                 return ZoneFilter.eastOf(lat, lon, 52.077010, -4.761375, 52.068727, -4.746698) ? "stdogmaels" : "";
         }
-        return false;
+        return "";
     }
 
 
