@@ -4,7 +4,7 @@ class ZoneFilter {
         if (req) {
             this.cardigan = req.query.z.indexOf("cardigan") >= 0;
             this.moylgrove = req.query.z.indexOf("moylgrove") >= 0;
-            this.stDogs = req.query.z.indexOf("stdogmaels") >= 0;
+            this.stdogmaels = req.query.z.indexOf("stdogmaels") >= 0;
         }
         else { this.cardigan = true; this.moylgrove = true; this.stdogmaels = true; }
     }
@@ -21,7 +21,7 @@ class ZoneFilter {
         var eastOfTeifi = ZoneFilter.eastOf(lat, lon, 52.108721, -4.693521, 52.080538, -4.662244)
             || lat > 52.083175 && lon > -4.681352; // Castle Farm
         if (this.cardigan && eastOfTeifi) return "cardigan";
-        if (this.stDogs) {
+        if (this.stdogmaels) {
             if (lat < 52.057273 || lat > 52.121499 || lon > -4.646737) return "";
             if (eastOfTeifi)
                 // include Bridgend:
