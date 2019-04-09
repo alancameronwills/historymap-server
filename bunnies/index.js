@@ -4,7 +4,10 @@ module.exports = function (context, req, inTable) {
 
     context.res = {
         status: 200,
-        body: req.query.after ? inTable.filter(p => p.Updated.toISOString().localeCompare(req.query.after)>0) : inTable
+        body: req.query.after 
+        ? inTable.filter(p => 
+            p.Updated ? p.Updated.toISOString().localeCompare(req.query.after)>0 : false)
+        : inTable
     };
     //inTable.forEach(p=> context.log(p.Updated.toISOString()));
     //context.log(req.query);
