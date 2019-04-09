@@ -45,5 +45,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req,  Cloud
         public string Pic2 { get; set; }
         public string Text { get; set; }
         public string Year { get; set; }
-        public string User { get; set; }
+        public DateTime Updated {get; set;}
+        public string User {get; set;}
+        public string DeleteOK { get; set; }
+        public string UpdateTrail { get; set; }
     }

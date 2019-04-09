@@ -17,7 +17,7 @@
     {
       "type": "table",
       "name": "outTable",
-      "tableName": "bunny",
+      "tableName": "places01",
       "connection": "AzureWebJobsStorage",
       "direction": "out"
     }

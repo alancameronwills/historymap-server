@@ -17,7 +17,7 @@
     {
       "type": "table",
       "name": "inTable",
-      "tableName": "bunny",
+      "tableName": "places01",
       "connection": "AzureWebJobsStorage",
       "direction": "in",
       "take": 10000

@@ -40,10 +40,12 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req,  Cloud
         TableResult result = outTable.Execute(deleteOperation);
         return new HttpResponseMessage((HttpStatusCode)result.HttpStatusCode);
     }
+
+
     {
         place.User = user;
         place.Updated = DateTime.Now;
-        TableOperation updateOperation = TableOperation.InsertOrReplace(place);
+        TableOperation updateOperation = TableOperation.InsertOrMerge(place);
         TableResult result = outTable.Execute(updateOperation);
         return new HttpResponseMessage((HttpStatusCode)result.HttpStatusCode);
     }
@@ -55,6 +57,28 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req,  Cloud
     public class PlaceEntity : TableEntity
     {
         public PlaceEntity() { }
+
+        public string Title { get; set; }
+        public string Subtitle { get; set; }
+        public string Postcode { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
+        public string Zoom { get; set; }
+        public string Pic1 { get; set; }
+        public string Pic2 { get; set; }
+        public string Text { get; set; }
+        public string Year { get; set; }
+        public DateTime Updated {get; set;}
+        public string User {get; set;}
+        public string DeleteOK { get; set; }
+        public string UpdateTrail { get; set; }
+    }
+
+
+
+    public class PlaceEntityOld : TableEntity
+    {
+        public PlaceEntityOld() { }
         public string Title { get; set; }
         public string Latitude { get; set; }
         public string Longitude { get; set; }
