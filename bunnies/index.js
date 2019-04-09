@@ -7,7 +7,7 @@ module.exports = function (context, req, inTable) {
         body: req.query.after 
         ? inTable.filter(p => 
             p.Updated ? p.Updated.toISOString().localeCompare(req.query.after)>0 : false)
-        : inTable
+        : inTable.filter(p => { if (!p.Updated) {p.Updated = p.Timestamp} return true; })
     };
     //inTable.forEach(p=> context.log(p.Updated.toISOString()));
     //context.log(req.query);
