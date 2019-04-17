@@ -45,6 +45,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req,  Cloud
     {
         place.User = user;
         place.Updated = DateTime.Now;
+        if (!place.Postcode) place.Postcode = "";
+        if (!place.Subtitle) place.Subtitle = "";
         TableOperation updateOperation = TableOperation.InsertOrMerge(place);
         TableResult result = outTable.Execute(updateOperation);
         return new HttpResponseMessage((HttpStatusCode)result.HttpStatusCode);
