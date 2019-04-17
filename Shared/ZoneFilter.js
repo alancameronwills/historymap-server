@@ -19,7 +19,8 @@ class ZoneFilter {
         // Moylgrove includes the west of Cemais
         if (this.moylgrove && (lat + lon * 0.97868 - 47.4631 < 0)) return "moylgrove";
         var eastOfTeifi = ZoneFilter.eastOf(lat, lon, 52.108721, -4.693521, 52.080538, -4.662244)
-            || lat > 52.083175 && lon > -4.681352; // Castle Farm
+            || lat > 52.083175 && lon > -4.681352 
+                && ZoneFilter.eastOf(lat, lon, 52.085372, -4.681771, 52.082893, -4.677566); // Castle Farm
         if (this.cardigan && eastOfTeifi) return "cardigan";
         if (this.stdogmaels) {
             if (lat < 52.057273 || lat > 52.121499 || lon > -4.642) return "";
