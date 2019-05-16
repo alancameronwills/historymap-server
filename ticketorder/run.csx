@@ -53,7 +53,9 @@ private static async Task send (TraceWriter log, string toAddress, string title,
             + " The Old School Hall is about 200m on the left. <a href='https://goo.gl/maps/DnGV5rveER6mRXkM6'>Streetview</a></p>");
         Content content = new Content("text/html", sb.ToString());
         Mail mail = new Mail(from, subject, to, content);
-        dynamic sg = new SendGridAPIClient("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");
+        var sgkey = Environment.GetEnvironmentVariable("SENDGRIDKEY");
+        log.Info("SendGrid " + sgkey);
+        dynamic sg = new SendGridAPIClient(sgkey);
         dynamic response = await sg.client.mail.send.post(requestBody: mail.Get());
 }
 
