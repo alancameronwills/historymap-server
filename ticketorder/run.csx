@@ -18,11 +18,12 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     foreach ( String s in m.AllKeys )
          b.AppendLine(String.Format( "   {0,-10} {1}", s, m[s] ));
     log.Info(b.ToString());
-
-    var eventAndDate = (m["item_name"] + "|").Split('|'); // Just in case
-    await send(log, m["payer_email"],eventAndDate[0],eventAndDate[1],m["quantity"],m["mc_gross"],
-    m["payment_date"],m["address_name"] + " " + m["address_zip"],
-    m["option_selection1"],m["option_selection2"]);
+    try {
+        var eventAndDate = (m["item_name"] + "|").Split('|'); // Just in case
+        await send(log, m["payer_email"],eventAndDate[0],eventAndDate[1],m["quantity"],m["mc_gross"],
+        m["payment_date"],m["address_name"] + " " + m["address_zip"],
+        m["option_selection1"],m["option_selection2"]);
+    } catch (Exception ex) {log.Error(ex);}
     
     return  req.CreateResponse(HttpStatusCode.OK, "OK");
 }
