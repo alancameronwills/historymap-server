@@ -1,5 +1,6 @@
 using System.Net;
 
+// Get keys for client from env vars
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
     var b = new Dictionary<string, string>();
