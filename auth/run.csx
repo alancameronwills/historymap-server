@@ -3,7 +3,6 @@ using Microsoft.WindowsAzure.Storage;
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
-    log.Info("Req");
          // parse query parameter
         string name = req.GetQueryNameValuePairs()
             .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
@@ -75,8 +74,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 public static string GetAccountSASToken()
 {
             
-            var storageAccount = CloudStorageAccount.Parse
-              ("DefaultEndpointsProtocol=https;AccountName=moylgrovehistory;AccountKey=FYrLaOQASw3oLaEscmMUWtV70VbcTFGZXxwp0GuaTvJZKguM/C9AiI1nAKp6uw7AP4+k1gXwXTKNw9pcLDiFYA==;EndpointSuffix=core.windows.net");
+            var storageAccount = CloudStorageAccount.Parse(Environment.GetEnvironmentVariable("SASCONNECTIONSTRING"));
 
             // Create a new access policy for the account.
             SharedAccessAccountPolicy policy = new SharedAccessAccountPolicy()

@@ -23,7 +23,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
         await send(log, m["payer_email"],eventAndDate[0],eventAndDate[1],m["quantity"],m["mc_gross"],
         m["payment_date"],m["address_name"] + " " + m["address_zip"],
         m["option_selection1"],m["option_selection2"]);
-    } catch (Exception ex) {log.Error(ex);}
+    } catch (Exception ex) {log.Error(ex.Message);}
     
     return  req.CreateResponse(HttpStatusCode.OK, "OK");
 }
@@ -54,9 +54,7 @@ private static async Task send (TraceWriter log, string toAddress, string title,
             + " The Old School Hall is about 200m on the left. <a href='https://goo.gl/maps/DnGV5rveER6mRXkM6'>Streetview</a></p>");
         Content content = new Content("text/html", sb.ToString());
         Mail mail = new Mail(from, subject, to, content);
-        var sgkey = Environment.GetEnvironmentVariable("SENDGRIDKEY");
-        log.Info("SendGrid " + sgkey);
-        dynamic sg = new SendGridAPIClient(sgkey);
+        dynamic sg = new SendGridAPIClient(Environment.GetEnvironmentVariable("SENDGRIDKEY"));
         dynamic response = await sg.client.mail.send.post(requestBody: mail.Get());
 }
 
