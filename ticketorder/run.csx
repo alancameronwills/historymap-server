@@ -6,6 +6,8 @@ using SendGrid.Helpers.Mail;
 using System.Collections.Generic;
 using System.Text;
 
+// PayPal webhook by moylgrove.wales 
+
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
     var datanc = await req.Content.ReadAsStringAsync();
