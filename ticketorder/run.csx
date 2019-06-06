@@ -17,7 +17,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     var b = new StringBuilder();
     foreach ( String s in m.AllKeys )
          b.AppendLine(String.Format( "   {0,-10} {1}", s, m[s] ));
-    log.Info(b.ToString());
+    //log.Info(b.ToString());
     try {
         var eventAndDate = (m["item_name"] + "|").Split('|'); // Just in case
         await send(log, m["payer_email"],eventAndDate[0],eventAndDate[1],m["quantity"],m["mc_gross"],
@@ -32,7 +32,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 private static async Task send (TraceWriter log, string toAddress, string title, string date, 
         string quantity, string paid, string purchased, string name,
         string opt1, string opt2) { 
-        log.Info("send: " + toAddress);
         var from = new Email("info@moylgrove.wales");
         var subject = "Tickets for Moylgrove";
         var to = new Email(toAddress);
@@ -54,8 +53,9 @@ private static async Task send (TraceWriter log, string toAddress, string title,
             + " The Old School Hall is about 200m on the left. <a href='https://goo.gl/maps/DnGV5rveER6mRXkM6'>Streetview</a></p>");
         Content content = new Content("text/html", sb.ToString());
         Mail mail = new Mail(from, subject, to, content);
-        dynamic sg = new SendGridAPIClient(Environment.GetEnvironmentVariable("SENDGRIDKEY"));
+        dynamic sg = new SendGridAPIClient(Environment.GetEnvironmentVariable("SENDGRIDKEY2"));
         dynamic response = await sg.client.mail.send.post(requestBody: mail.Get());
+        log.Info("sent: " + toAddress + " " + response.StatusCode);
 }
 
 
