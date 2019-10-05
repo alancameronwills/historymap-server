@@ -22,7 +22,7 @@ class ZoneFilter {
 
         // Hard-wired areas!
 
-        if (this.dinas && lon < -4.87424) return "dinas";
+        if (this.dinas && lon < -4.87424 && lat > 52.0) return "dinas";
         // Moylgrove includes the west of Cemais
         if (this.moylgrove && (lat + lon * 0.97868 - 47.4631 < 0)) return "moylgrove";
         var eastOfTeifi = ZoneFilter.eastOf(lat, lon, 52.108721, -4.693521, 52.080538, -4.662244)
