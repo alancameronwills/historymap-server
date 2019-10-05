@@ -5,8 +5,14 @@ class ZoneFilter {
             this.cardigan = req.query.z.indexOf("cardigan") >= 0;
             this.moylgrove = req.query.z.indexOf("moylgrove") >= 0;
             this.stdogmaels = req.query.z.indexOf("stdogmaels") >= 0;
+            this.dinas = req.query.z.indexOf("dinas") >= 0;
         }
-        else { this.cardigan = true; this.moylgrove = true; this.stdogmaels = true; }
+        else { 
+            this.cardigan = true; 
+            this.moylgrove = true; 
+            this.stdogmaels = true; 
+            this.dinas = true;
+        }
     }
     // 
     ok(place) {
@@ -16,6 +22,7 @@ class ZoneFilter {
 
         // Hard-wired areas!
 
+        if (this.dinas && lon < -4.87424) return "dinas";
         // Moylgrove includes the west of Cemais
         if (this.moylgrove && (lat + lon * 0.97868 - 47.4631 < 0)) return "moylgrove";
         var eastOfTeifi = ZoneFilter.eastOf(lat, lon, 52.108721, -4.693521, 52.080538, -4.662244)
