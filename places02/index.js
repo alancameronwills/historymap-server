@@ -1,11 +1,16 @@
 
 module.exports = function (context, req, intable) {
-    var outtable = intable;
-    context.log(req);
-    context.res = {
-        status: 200,
-        body: outtable
-    };
-    context.done();
+    if (req.headers["x-ms-client-principal-id"] && req.params["q"] && req.headers["x-ms-client-principal-id"] == req.params["q"]) {
+        var outtable = intable;
+        context.log(req);
+        context.res = {
+            status: 200,
+            body: outtable
+        };
+        context.done();
+    } else {
+        context.res.status = 401;
+        context.done();
+    }
 };
 
