@@ -18,7 +18,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req,  Cloud
         return new HttpResponseMessage(HttpStatusCode.BadRequest); 
     }
 
-    if (host.IndexOf("//localhost")<0 && u1 == null) {
+    if (host[0].IndexOf("//localhost")<0 && u1 == null) {
         log.Info("no user");
         return new HttpResponseMessage(HttpStatusCode.Unauthorized);
     }
