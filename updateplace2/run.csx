@@ -11,14 +11,13 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req,  Cloud
     var host = req.Headers.FirstOrDefault(kv => kv.Key.ToLower() == "origin").Value;
     var u1 = req.Headers.FirstOrDefault(kv => kv.Key.ToLower() == "x-ms-client-principal-name").Value;
 
-    //foreach (var kv in req.Headers) {log.Info(kv.Key + " " + kv.Value.Aggregate("", (s, x) => s + " " + x));}
+    foreach (var kv in req.Headers) {log.Info(kv.Key + " " + kv.Value.Aggregate("", (s, x) => s + " " + x));}
 
     if (place == null) { 
         log.Info("no place"); 
         return new HttpResponseMessage(HttpStatusCode.BadRequest); 
     }
 
-    var s;
     if (host.IndexOf("//localhost")<0 && u1 == null) {
         log.Info("no user");
         return new HttpResponseMessage(HttpStatusCode.Unauthorized);
