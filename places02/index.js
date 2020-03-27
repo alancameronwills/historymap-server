@@ -1,7 +1,7 @@
 
 module.exports = function (context, req, intable) {
     if (req.headers["origin"] && req.headers["origin"].indexOf("//localhost") >0 ||
-        req.headers["x-ms-client-principal-id"] && req.params["q"] && req.headers["x-ms-client-principal-id"] == req.params["q"]) {
+        req.headers["x-ms-client-principal-id"]) {
         var outtable = intable;
         context.log(req);
         context.res = {
