@@ -1,6 +1,6 @@
 module.exports = function (context, req) {
         
-    var names = ["pantywylan@gmail.com", "sue.sturges@btconnect.com"];
+    var names = ["pantywylan@gmail.com", "Sue.sturges@btconnect.com"];
     
     var name = req.headers["x-ms-client-principal-name"] || "";
     //context.log(req);
