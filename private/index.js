@@ -1,11 +1,8 @@
 module.exports = function (context, req) {
-        
-    var names = ["pantywylan@gmail.com", "Sue.sturges@btconnect.com", "Katharine Whitehead"];
-    
+    var roles = JSON.parse(process.env.Roles);    
+    var names = roles.filter(r => r.r.indexOf("residents")>=0).map(r => r.n);
     var name = req.headers["x-ms-client-principal-name"] || "";
-    //context.log(req);
     var ok = names.indexOf(name) >=0;
-    //context.log(ok);
     context.log(name);
         context.res = {
             status: ok? 200 : 401,
