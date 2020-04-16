@@ -33,7 +33,7 @@ module.exports = function (context, myTimer) {
         } catch (ex) {context.log(ex);}
         if (isMoreToCome) { got += "=== " + count + "\n"; }
         else {
-            context.log("" + got + "\n" + count + "\n");
+            //context.log("" + got + "\n" + count + "\n");
             try {
             for (var i = 0; i< toClean.length; i++) {
                 context.log(toClean[i]);
