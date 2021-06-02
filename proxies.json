@@ -25,6 +25,12 @@
             },
             "backendUri": "https://localhost/api/redirect"
         },
+        "codeFromBlobGoogleVerify": {
+            "matchCondition": {
+                "route": "/google0de639b3e4ad4ba7.html"
+            },
+            "backendUri": "https://moylgrovehistory.blob.core.windows.net/code/history/google0de639b3e4ad4ba7.html"
+        },
         "images": {
             "matchCondition": {
                 "route": "/images/{*file}"
